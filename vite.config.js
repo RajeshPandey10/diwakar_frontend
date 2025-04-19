@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react(),tailwindcss()],
   build: {
     rollupOptions: {
-      external: ['aos']
+      external: ['aos','axios']
     }
   }
 })
