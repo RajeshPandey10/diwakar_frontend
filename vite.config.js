@@ -6,7 +6,12 @@ export default defineConfig({
   plugins: [react(),tailwindcss()],
   build: {
     rollupOptions: {
-      external: ['aos','axios']
+      external: ['aos']
+    }
+  },
+  resolve: {
+    alias: {
+      axios: require.resolve('axios'), // ✅ this helps Vite find axios correctly
     }
   }
 })
