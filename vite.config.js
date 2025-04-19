@@ -11,6 +11,10 @@ export default defineConfig({
       external: ['aos']
     }
   },
+  server: {
+    port: 3000,  // Make sure Vite listens on port 3000
+    host: true    // Expose the server to the network
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
