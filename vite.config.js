@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
     rollupOptions: {
-      external: ['aos']
+      external: [], // Remove aos from external
     }
   },
   server: {
@@ -21,7 +21,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
+      'aos': path.resolve(__dirname, 'node_modules/aos')
     }
   }
 })

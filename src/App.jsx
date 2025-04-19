@@ -16,12 +16,13 @@ import Contact from "./components/Contact/Contact";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// Import AOS properly
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// Add this style to your global CSS
+// Add styles
 import "./styles/gradient-text.css";
-import "./styles/blog.css"; // Add this line
+import "./styles/blog.css";
 
 // Page transition wrapper
 const PageTransition = ({ children }) => {
@@ -88,10 +89,19 @@ const AppContent = () => {
 
 const App = () => {
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
+    try {
+      // Safely initialize AOS
+      if (typeof AOS.init === "function") {
+        AOS.init({
+          duration: 1000,
+          once: true,
+        });
+      } else {
+        console.warn("AOS.init is not available");
+      }
+    } catch (error) {
+      console.error("Failed to initialize AOS:", error);
+    }
   }, []);
 
   return (
