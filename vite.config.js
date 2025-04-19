@@ -11,7 +11,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      axios: require.resolve('axios'), // ✅ this helps Vite find axios correctly
+      axios: require.resolve('axios'), 
     }
   }
 })
