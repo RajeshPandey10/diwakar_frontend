@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api'; // Update with your backend API URL
+const API_URL = 'https://diwakar-backend.onrender.com/api'; // Update with your backend API URL
 
 const api = axios.create({
     baseURL: API_URL,
