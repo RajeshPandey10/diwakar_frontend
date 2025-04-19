@@ -13,7 +13,11 @@ export default defineConfig({
   },
   server: {
     port: 3000,  // Make sure Vite listens on port 3000
-    host: true    // Expose the server to the network
+    host: true,   // Expose the server to the network
+    allowedHosts: [
+      'diwakar-frontend.onrender.com',
+      '*.onrender.com'
+    ]
   },
   resolve: {
     alias: {
