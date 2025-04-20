@@ -10,6 +10,8 @@ import {
   FaTimes,
   FaReply,
   FaFilter,
+  FaAngleDown,
+  FaAngleUp,
 } from "react-icons/fa";
 import { toast } from "react-toastify";
 
@@ -20,6 +22,7 @@ const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isWritingComment, setIsWritingComment] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [expandedPosts, setExpandedPosts] = useState({});
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -103,6 +106,20 @@ const Blog = () => {
     }));
   };
 
+  const togglePostExpansion = (postId) => {
+    setExpandedPosts((prev) => ({
+      ...prev,
+      [postId]: !prev[postId],
+    }));
+  };
+
+  const isContentLong = (content, category) => {
+    if (category === "Poem") {
+      return content.split("\n").length > 10;
+    }
+    return content.length > 300;
+  };
+
   const getInitials = (name) => {
     if (!name) return "?";
     return name
@@ -125,7 +142,6 @@ const Blog = () => {
   const ADMIN_IMAGE =
     "https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/484512443_28725990397046134_3302050677838970313_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=KYC-fwYP2GIQ7kNvwEOlu5W&_nc_oc=AdljGGBrH9UX_sY-CNH9_hcUAuof1U1Wwmn1UI8Om83TPTlDtXfE9Jrwq2fo6GqbgAIjkB8nnH14aFWm7zkDYHOv&_nc_zt=23&_nc_ht=scontent.fktm8-1.fna&_nc_gid=KmJJTFFJDz92-eqfYSbkUA&oh=00_AfGduARmYiFHApZevO37P9nU7uaIPTNdnUMnkBlT_EhbEA&oe=68094F8C";
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -161,14 +177,13 @@ const Blog = () => {
         </p>
       </motion.div>
 
-      {/* Category Filter Buttons */}
       <motion.div
         className="mb-8 flex flex-wrap gap-3 justify-center"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        {["All", "Politics", "Status", "Poem"].map((category) => (
+        {["All", "Article", "Status", "Poem"].map((category) => (
           <motion.button
             key={category}
             onClick={() => setSelectedCategory(category)}
@@ -215,7 +230,6 @@ const Blog = () => {
               variants={itemVariants}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
-              {/* Post Header & Content */}
               <div className="p-6 flex-grow">
                 <div className="flex justify-between items-start mb-3">
                   <h2 className="text-xl font-bold text-blue-400">
@@ -229,7 +243,6 @@ const Blog = () => {
                   Posted on {formatDate(post.createdAt)}
                 </div>
 
-                {/* Post Content */}
                 <div className="mb-4">
                   {post.image && (
                     <div className="mb-4 rounded-lg overflow-hidden">
@@ -246,19 +259,73 @@ const Blog = () => {
                       />
                     </div>
                   )}
+
                   {post.category === "Poem" ? (
-                    <pre className="text-gray-300 whitespace-pre-wrap font-sans line-clamp-4">
-                      {post.content}
-                    </pre>
+                    <div>
+                      <pre
+                        className={`text-gray-300 whitespace-pre-wrap font-sans ${
+                          !expandedPosts[post._id] &&
+                          isContentLong(post.content, post.category)
+                            ? "line-clamp-10"
+                            : ""
+                        }`}
+                      >
+                        {post.content}
+                      </pre>
+                      {isContentLong(post.content, post.category) && (
+                        <motion.button
+                          onClick={() => togglePostExpansion(post._id)}
+                          className="mt-2 text-blue-400 hover:text-blue-300 flex items-center transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {expandedPosts[post._id] ? (
+                            <>
+                              <FaAngleUp className="mr-1" /> Show Less
+                            </>
+                          ) : (
+                            <>
+                              <FaAngleDown className="mr-1" /> Read Full Poem
+                            </>
+                          )}
+                        </motion.button>
+                      )}
+                    </div>
                   ) : (
-                    <p className="text-gray-300 whitespace-pre-line line-clamp-4">
-                      {post.content}
-                    </p>
+                    <div>
+                      <p
+                        className={`text-gray-300 whitespace-pre-line ${
+                          !expandedPosts[post._id] &&
+                          isContentLong(post.content, post.category)
+                            ? "line-clamp-4"
+                            : ""
+                        }`}
+                      >
+                        {post.content}
+                      </p>
+                      {isContentLong(post.content, post.category) && (
+                        <motion.button
+                          onClick={() => togglePostExpansion(post._id)}
+                          className="mt-2 text-blue-400 hover:text-blue-300 flex items-center transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {expandedPosts[post._id] ? (
+                            <>
+                              <FaAngleUp className="mr-1" /> Show Less
+                            </>
+                          ) : (
+                            <>
+                              <FaAngleDown className="mr-1" /> Read More
+                            </>
+                          )}
+                        </motion.button>
+                      )}
+                    </div>
                   )}
                 </div>
               </div>
 
-              {/* Post Footer */}
               <div className="p-4 border-t border-gray-700 bg-gray-800/90">
                 <div className="flex items-center justify-between">
                   <button
@@ -284,7 +351,6 @@ const Blog = () => {
                 </div>
               </div>
 
-              {/* Comments Section */}
               {expandedComments[post._id] && (
                 <motion.div
                   className="bg-gray-750 border-t border-gray-700"
@@ -297,14 +363,12 @@ const Blog = () => {
                       <FaCommentDots className="mr-2" /> Comments
                     </h3>
 
-                    {/* Comments List */}
                     <div className="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar">
                       {post.comments?.map((comment, index) => (
                         <div
                           key={index}
                           className="bg-gray-750 rounded-lg overflow-hidden"
                         >
-                          {/* User Comment */}
                           <div className="p-3">
                             <div className="flex items-start">
                               <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-blue-600 flex items-center justify-center">
@@ -316,7 +380,6 @@ const Blog = () => {
                               </div>
                               <div className="ml-3 flex-1">
                                 <div className="bg-gray-700 rounded-lg p-3 relative">
-                                  {/* Loved by admin indicator */}
                                   {comment.isLovedByAdmin && (
                                     <div className="absolute -right-2 -top-2 w-6 h-6 rounded-full border-2 border-gray-800 shadow-lg">
                                       <img
@@ -345,7 +408,6 @@ const Blog = () => {
                               </div>
                             </div>
 
-                            {/* Admin Reply */}
                             {comment.reply && (
                               <div className="ml-8 mt-2">
                                 <div className="flex items-start">
@@ -385,7 +447,6 @@ const Blog = () => {
                       )}
                     </div>
 
-                    {/* Add Comment button/form */}
                     {!isWritingComment[post._id] ? (
                       <motion.button
                         onClick={() => toggleWriteComment(post._id)}
