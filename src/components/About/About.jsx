@@ -1,8 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaGraduationCap, FaBriefcase, FaLandmark } from "react-icons/fa";
+import { FaGraduationCap, FaBriefcase, FaLandmark,FaFileAlt } from "react-icons/fa";
 
 const About = () => {
+    // const openCV = () => {
+    //     // Replace with your actual CV URL
+    //     window.open("/cv_diwakar.pdf", "_blank");
+    //   };
   // Animation variants
   const sectionVariants = {
     hidden: { opacity: 0 },
@@ -78,6 +82,30 @@ const About = () => {
               financial management and auditing. My career has been dedicated to
               helping businesses achieve their financial goals through strategic
               planning and expert financial analysis.
+                {/* CV Button with Animation */}
+                          {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                            <button
+                              onClick={openCV}
+                              className="group relative px-8 py-3 bg-green-600 overflow-hidden rounded-lg inline-flex items-center"
+                            >
+                              <motion.span className="absolute inset-0 w-0 bg-green-800 transition-all duration-500 ease-out group-hover:w-full" />
+                              <FaFileAlt className="mr-2 relative z-10" />
+                              <span className="font-medium relative z-10">View CV</span>
+              
+                              {/* Small dot animation */}
+                              {/* <motion.span
+                                className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-white"
+                                animate={{
+                                  opacity: [0, 1, 0],
+                                  scale: [1, 1.5, 1],
+                                }}
+                                transition={{
+                                  duration: 2,
+                                  repeat: Infinity,
+                                }}
+                              />
+                            </button>
+                          </motion.div> */} 
             </p>
 
             <motion.div

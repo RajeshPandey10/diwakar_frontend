@@ -5,10 +5,7 @@ import { FaFileAlt, FaEnvelope, FaInfoCircle } from "react-icons/fa";
 import img from "../../../public/IMG_5683.jpg";
 
 const Home = () => {
-  const openCV = () => {
-    // Replace with your actual CV URL
-    window.open("/cv_diwakar.pdf", "_blank");
-  };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
@@ -25,8 +22,8 @@ const Home = () => {
           </h1>
 
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            I am a Chartered Accountant with a passion for politics, career
-            growth, and blogging. Explore my journey and achievements.
+          A Chartered Accountant (CA) holding a Certificate of Practice (COP) and serving as a
+          partner at K. B. P. S. & Associates, Chartered Accountants, a growing and reputed firm.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
@@ -54,30 +51,7 @@ const Home = () => {
               </Link>
             </motion.div>
 
-            {/* CV Button with Animation */}
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <button
-                onClick={openCV}
-                className="group relative px-8 py-3 bg-green-600 overflow-hidden rounded-lg inline-flex items-center"
-              >
-                <motion.span className="absolute inset-0 w-0 bg-green-800 transition-all duration-500 ease-out group-hover:w-full" />
-                <FaFileAlt className="mr-2 relative z-10" />
-                <span className="font-medium relative z-10">View CV</span>
-
-                {/* Small dot animation */}
-                <motion.span
-                  className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-white"
-                  animate={{
-                    opacity: [0, 1, 0],
-                    scale: [1, 1.5, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                  }}
-                />
-              </button>
-            </motion.div>
+          
           </div>
         </motion.div>
 
