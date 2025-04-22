@@ -171,8 +171,9 @@ const Home = () => {
               Political Advocacy
             </h3>
             <p className="text-gray-300">
-              Dedicated to promoting financial transparency and ethical
-              governance through active political engagement.
+            I believe in a liberal, inclusive democracy grounded in human rights, freedom of speech, and the rule of law.
+            I stand for a socially just society where everyone is treated with dignity, regardless of their background, and where diversity is a strength—not a dividing line.
+            In everything, we strive for a democracy that empowers, protects, and includes all of us.
             </p>
           </motion.div>
 
