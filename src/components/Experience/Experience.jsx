@@ -13,40 +13,51 @@ const Experience = () => {
   // Professional experiences
   const professionalExperiences = [
     {
-      title: "Senior Chartered Accountant",
-      company: "Financial Insights Inc.",
-      location: "New Delhi",
-      period: "2019 - Present",
+      title: "Article Trainee",
+      company: "M. Thomas & Co.",
+      location: "",
+      date: "2013",
       description:
-        "Leading a team of accountants to provide strategic financial planning, tax optimization, and audit services to major corporate clients across multiple industries.",
+        "",
       color: "blue",
     },
     {
-      title: "Financial Consultant",
-      company: "Pinnacle Advisory Group",
-      location: "Mumbai",
-      period: "2016 - 2019",
-      description:
-        "Delivered specialized financial consulting services to businesses, implementing cost-saving measures and developing efficient financial systems.",
+      title: "Article Trainee",
+      company: "Gupta Aggarwal Sharda & Jain, Chartered Accountants",
+      date: "2014",
       color: "purple",
     },
     {
-      title: "Tax Specialist",
-      company: "Global Tax Solutions",
-      location: "Bangalore",
-      period: "2014 - 2016",
-      description:
-        "Specialized in corporate tax planning, compliance, and optimization strategies for international businesses operating in the Indian market.",
+      title: "Associates",
+      company: "Kaizen Business Consultants Pvt Ltd",
+      date: "2019",
+      
+      color: "green",
+    },
+   
+    {
+      title: "Senior Associates",
+      company: "Ecovis P Y C & Associates, Chartered Accountants",
+      date: "2020",
+      color: "purple",
+    },
+    {
+      title: "Managing  Director",
+      company: "Kaizen Business Consultants Pvt Ltd",
+      date: "2021",
+      color: "purple",
+    },
+    {
+      title: "Chartered Accountants",
+      company: "A. Khadka & Associates, Chartered Accountants",
+      date: "2023",
       color: "green",
     },
     {
-      title: "Junior Accountant",
-      company: "Sharma & Associates",
-      location: "Delhi",
-      period: "2012 - 2014",
-      description:
-        "Managed accounting operations, prepared financial statements, and assisted with tax filing for small to medium enterprises.",
-      color: "red",
+      title: "Partner",
+      company: "K. B. P. S. & Associates, Chartered Accountants",
+      date: "2025",
+      color: "green",
     },
   ];
 
@@ -54,39 +65,77 @@ const Experience = () => {
   const politicalExperiences = [
     {
       title: "General Member",
-      organization: "Hatemalo Nepali Student Group",
-      location: "Kathmandu",
-      period: "2012 - Present",
+      organization: "Hatemalo Nepali Students Group (HNSG)",
+      location: "New Delhi,India",
+      date: "2012",
       description:
-        "Advocating for transparent governance and economic reforms through grassroots organizing and public engagement campaigns.",
+        "Took General Membership of Hatemalo Nepali Students Group (HNSG), HNSG used to be an umbrella organization for Nepalese CA Students residing in Laxminagar, New Delhi.",
       color: "blue",
     },
     {
-      title: "Youth Leader",
-      organization: "Nepal Youth Association",
-      location: "Kathmandu",
-      period: "2016 - 2018",
-      description:
-        "Led initiatives to engage young people in democratic processes and foster civic responsibility through community projects and educational programs.",
+      title: "Board Mmeber",
+      organization: "Hatemalo Nepali Students Group (HNSG)",
+      location: "New Delhi,India",
+      date: "2013",
+      description:"Elected as Board Mmeber for 5th tenure of Hatemalo Nepali Students Group (HNSG). Played crucial role in successful tenure being the most active board member.",
       color: "purple",
+
     },
     {
-      title: "Policy Advisor",
-      organization: "Economic Reform Initiative",
-      location: "Kathmandu",
-      period: "2015 - 2016",
-      description:
-        "Provided expert input on financial policies, helping develop frameworks to promote economic stability and growth through responsible fiscal management.",
+      title: "Advisor",
+      organization: "Hatemalo Nepali Students Group (HNSG)",
+      location: "New Delhi,India",
+      date: "2014",
+      description:"Nominated as Advisor by 6th tenure of Hatemalo Nepali Student's Group recognizing the contribution made in 5th tenure & for further guidance.",
       color: "green",
     },
     {
-      title: "Campaign Volunteer",
-      organization: "National Democratic Alliance",
-      location: "Various Districts",
-      period: "2013 - 2015",
-      description:
-        "Supported democratic election campaigns, engaging with diverse communities to promote political awareness and voter participation.",
-      color: "red",
+      title: "Advisor",
+      organization: "CA NSU",
+      location: "India",
+      date: "2015",
+      description:"Nominated as Advisor by 2nd committee of CA NSU India recognizing role played for helping Nepalese students residing in India",
+      color: "green",
+    },
+    {
+      title: "Joint General Secretary",
+      organization: "Nepal Student's Union",
+      location: "India",
+      date: "2018",
+      description:"Nominated as Joint General Secretary for central committee of Nepal Student's Union, India",
+      color: "purple",
+    },
+    {
+      title: "Treasurer",
+      organization: "Sushil Koirala Socialist Youth Circle",
+      location: "Nepal",
+      date: "2020",
+      description:"Nominated as Treasurer (Central) of Sushil Koirala Socialist Youth Circle",
+      color: "green",
+    },
+    {
+      title: "Regional Representative",
+      organization: "Nepali Congress",
+      location: "Nuwakot,Nepal",
+      date: "2021",
+      description:"Elected as Regional Representative for Nepali Congress, Nuwakot from Belkotgadhi Municipality-13, Nuwakot.",
+      color: "green",
+    },
+    {
+      title: "Central Committee Member",
+      organization: "Nepal Student's Union",
+      location: "Nepal",
+      date: "2023",
+      description:"Nominated as Central Committee Member  formed under leadership of Dujang Sherpa by Sher Bahadur Deuba, President, Nepali Congress.",
+      color: "purple",
+    },
+    {
+      title: "LIfe Member",
+      organization: "Association of Chartered Accountants of Nepal (ACAN)",
+      location: "Nepal",
+      date: "2024",
+      description:"",
+      color: "purple",
     },
   ];
 
@@ -219,20 +268,14 @@ const Experience = () => {
                             <FaSuitcase className="mr-2 text-gray-400" />
                             <span className="text-gray-300">{exp.company}</span>
                           </div>
-                          <div className="flex items-center">
-                            <FaMapMarkerAlt className="mr-2 text-gray-400" />
-                            <span className="text-gray-300">
-                              {exp.location}
-                            </span>
-                          </div>
                         </div>
 
                         <div className="flex items-center mt-2">
                           <FaCalendarAlt className="mr-2 text-gray-400" />
-                          <span className="text-gray-300">{exp.period}</span>
+                          <span className="text-gray-300">{exp.date}</span>
                         </div>
-
-                        <p className="mt-4 text-gray-300">{exp.description}</p>
+{/* 
+                        <p className="mt-4 text-gray-300">{exp.description}</p> */}
                       </div>
                     </motion.div>
                   </div>
@@ -339,7 +382,7 @@ const Experience = () => {
 
                         <div className="flex items-center mt-2">
                           <FaCalendarAlt className="mr-2 text-gray-400" />
-                          <span className="text-gray-300">{exp.period}</span>
+                          <span className="text-gray-300">{exp.date}</span>
                         </div>
 
                         <p className="mt-4 text-gray-300">{exp.description}</p>
