@@ -78,10 +78,7 @@ const About = () => {
               Career
             </h2>
             <p className="text-gray-300 text-center">
-              I am a Chartered Accountant with over 10 years of experience in
-              financial management and auditing. My career has been dedicated to
-              helping businesses achieve their financial goals through strategic
-              planning and expert financial analysis.
+            I am a Chartered Accountant by profession, currently holding a Certificate of Practice and serving as a partner at K.B.P.S & Associates, Chartered Accountants. My core areas of focus include auditing, regulatory compliance, taxation, corporate advisory, financial planning, and risk assessment. I am committed to helping organizations maintain financial stability and achieve sustainable growth.
                 {/* CV Button with Animation */}
                           {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                             <button
@@ -136,10 +133,7 @@ const About = () => {
               Education
             </h2>
             <p className="text-gray-300 text-center">
-              I hold a degree in Commerce and have completed my Chartered
-              Accountancy from the Institute of Chartered Accountants of India
-              with distinction. My education has provided me with a robust
-              foundation in financial principles and practices.
+            I completed my Chartered Accountancy from the Institute of Chartered Accountants of India (ICAI), one of the world’s largest and most respected accounting bodies. I also hold a Master’s degree in Business Studies (MBS) from Tribhuvan University. In addition, I have completed a post-qualification certification in Public Finance Management from the Institute of Chartered Accountants of Nepal (ICAN), further strengthening my expertise in public sector financial systems and governance.
             </p>
 
             <motion.div
@@ -170,10 +164,7 @@ const About = () => {
               Politics
             </h2>
             <p className="text-gray-300 text-center">
-              I am deeply involved in politics, advocating for transparency and
-              accountability in governance. My mission is to bring positive
-              change to society through ethical leadership and policy reform
-              that benefits all citizens.
+            As an aspiring youth politician, I am actively advocating for good governance, transparency, and accountable leadership. My mission is to bring positive change in society by promoting inclusive development and empowering communities. I firmly believe in the principles of democracy, socialism, and national integrity, and I am committed to upholding these values through my political journey.
             </p>
 
             <motion.div
