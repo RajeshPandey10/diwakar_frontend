@@ -37,12 +37,12 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { 
-      name: "Experience", 
-      path: "/experience",
+      name: "Journey", 
+      path: "/journey",
       dropdown: true,
       items: [
-        { name: "Professional", path: "/experience#professional" },
-        { name: "Political", path: "/experience#political" },
+        { name: "Professional", path: "/journey#professional" },
+        { name: "Political", path: "/journey#political" },
       ]
     },
     { name: "Blog", path: "/blog" },

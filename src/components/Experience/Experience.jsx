@@ -195,7 +195,7 @@ const Experience = () => {
             viewport={{ once: true }}
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-              Professional Experience
+              Professional Journey
             </span>
             <motion.span
               className="absolute bottom-0 left-1/2 w-20 h-1 bg-blue-500 rounded-full"
@@ -297,7 +297,7 @@ const Experience = () => {
             viewport={{ once: true }}
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-orange-500">
-              Political Experience
+              Political Journey
             </span>
             <motion.span
               className="absolute bottom-0 left-1/2 w-20 h-1 bg-red-500 rounded-full"
