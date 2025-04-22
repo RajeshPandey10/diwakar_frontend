@@ -190,8 +190,7 @@ const Home = () => {
               Thought Leadership
             </h3>
             <p className="text-gray-300">
-              Regular contributor on financial policy and economic trends
-              through blogs and public speaking.
+            I advocate for progressive leadership grounded in democratic values, youth empowerment, and public accountability. With specialized expertise in fiscal laws, finance, accountancy, auditing, public finance, and governance, I champion transparency, inclusivity, and evidence-based policies. My vision is to strengthen institutions and drive transformative change toward a just and forward-thinking Nepal.
             </p>
           </motion.div>
         </div>
