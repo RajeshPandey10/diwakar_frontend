@@ -3,10 +3,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaFileAlt, FaEnvelope, FaInfoCircle } from "react-icons/fa";
 import img from "../../../public/IMG_5683.jpg";
+import Gallery from "./Gallery"; // Import the Gallery component
 
 const Home = () => {
-
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       {/* Hero Section with proper spacing */}
@@ -22,8 +21,9 @@ const Home = () => {
           </h1>
 
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-          A Chartered Accountant (CA) holding a Certificate of Practice (COP) and serving as a
-          partner at K. B. P. S. & Associates, Chartered Accountants, a growing and reputed firm.
+            A Chartered Accountant (CA) holding a Certificate of Practice (COP)
+            and serving as a partner at K. B. P. S. & Associates, Chartered
+            Accountants, a growing and reputed firm.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
@@ -50,8 +50,6 @@ const Home = () => {
                 <span className="font-medium relative z-10">Learn More</span>
               </Link>
             </motion.div>
-
-          
           </div>
         </motion.div>
 
@@ -150,7 +148,11 @@ const Home = () => {
               Chartered Accountant
             </h3>
             <p className="text-gray-300">
-            With hands-on experience in auditing, regulatory compliance, and public finance management, I help organizations strengthen their financial strategies, ensure compliance, and drive long-term value. I believe that precision in numbers should always be paired with a clear understanding of the bigger picture.
+              With hands-on experience in auditing, regulatory compliance, and
+              public finance management, I help organizations strengthen their
+              financial strategies, ensure compliance, and drive long-term
+              value. I believe that precision in numbers should always be paired
+              with a clear understanding of the bigger picture.
             </p>
           </motion.div>
 
@@ -189,11 +191,20 @@ const Home = () => {
               Thought Leadership
             </h3>
             <p className="text-gray-300">
-            I advocate for progressive leadership grounded in democratic values, youth empowerment, and public accountability. With specialized expertise in fiscal laws, finance, accountancy, auditing, public finance, and governance, I champion transparency, inclusivity, and evidence-based policies. My vision is to strengthen institutions and drive transformative change toward a just and forward-thinking Nepal.
+              I advocate for progressive leadership grounded in democratic
+              values, youth empowerment, and public accountability. With
+              specialized expertise in fiscal laws, finance, accountancy,
+              auditing, public finance, and governance, I champion transparency,
+              inclusivity, and evidence-based policies. My vision is to
+              strengthen institutions and drive transformative change toward a
+              just and forward-thinking Nepal.
             </p>
           </motion.div>
         </div>
       </div>
+
+      {/* Add the Gallery section at the bottom */}
+      <Gallery />
     </div>
   );
 };

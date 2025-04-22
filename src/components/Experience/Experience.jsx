@@ -53,10 +53,10 @@ const Experience = () => {
   // Political experiences
   const politicalExperiences = [
     {
-      title: "Political Activist",
-      organization: "Nepali Congress",
+      title: "General Member",
+      organization: "Hatemalo Nepali Student Group",
       location: "Kathmandu",
-      period: "2018 - Present",
+      period: "2012 - Present",
       description:
         "Advocating for transparent governance and economic reforms through grassroots organizing and public engagement campaigns.",
       color: "blue",
