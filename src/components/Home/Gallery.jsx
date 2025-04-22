@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { FaPlay, FaImage, FaSpinner, FaFacebook } from "react-icons/fa";
 
 // Updated to ensure HTTP (not HTTPS) for local development
-const API_URL = "http://localhost:4000/api";
+const API_URL = "https://diwakar-backend.onrender.com/api";
 
 const Gallery = () => {
   const [galleryItems, setGalleryItems] = useState([]);
