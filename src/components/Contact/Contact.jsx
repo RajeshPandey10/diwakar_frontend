@@ -117,26 +117,7 @@ const Contact = () => {
                 </div>
               </motion.div>
 
-              <motion.div
-                className="flex items-center p-4 bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 transform hover:-translate-y-1 transition-transform duration-300"
-                variants={itemVariants}
-                whileHover={{ boxShadow: "0 0 25px rgba(168, 85, 247, 0.3)" }}
-              >
-                <div className="p-3 bg-purple-500 text-white rounded-full mr-4">
-                  <FaPhone size={24} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-purple-400">
-                    Phone
-                  </h3>
-                  <a
-                    href="tel:+919876543210"
-                    className="text-gray-300 hover:text-white transition-colors"
-                  >
-                    +9779864599939
-                  </a>
-                </div>
-              </motion.div>
+            
 
               <motion.div
                 className="flex items-center p-4 bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 transform hover:-translate-y-1 transition-transform duration-300"
@@ -159,8 +140,7 @@ const Contact = () => {
                 variants={itemVariants}
               >
                 <p className="text-gray-300 italic">
-                  "I'm always open to discussing new projects, opportunities in
-                  finance, or potential collaborations. Feel free to reach out!"
+                Let’s connect and work toward a more accountable and financially sound future for businesses and institutions in Nepal.
                 </p>
               </motion.div>
             </motion.div>

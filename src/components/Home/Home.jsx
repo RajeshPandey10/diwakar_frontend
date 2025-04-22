@@ -150,8 +150,7 @@ const Home = () => {
               Chartered Accountant
             </h3>
             <p className="text-gray-300">
-              Expert in financial management with a focus on strategic tax
-              planning and business advisory services.
+            With hands-on experience in auditing, regulatory compliance, and public finance management, I help organizations strengthen their financial strategies, ensure compliance, and drive long-term value. I believe that precision in numbers should always be paired with a clear understanding of the bigger picture.
             </p>
           </motion.div>
 
