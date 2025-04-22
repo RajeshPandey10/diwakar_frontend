@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [experienceDropdown, setExperienceDropdown] = useState(false);
   const location = useLocation();
 
   // Handle scroll effect
@@ -28,11 +29,23 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const toggleExperienceDropdown = () => {
+    setExperienceDropdown(!experienceDropdown);
+  };
+
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
+    { 
+      name: "Experience", 
+      path: "/experience",
+      dropdown: true,
+      items: [
+        { name: "Professional", path: "/experience#professional" },
+        { name: "Political", path: "/experience#political" },
+      ]
+    },
     { name: "Blog", path: "/blog" },
-    { name: "Experience", path: "/experience" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -63,6 +76,22 @@ const Navbar = () => {
     exit: { opacity: 0, y: -10, transition: { duration: 0.2 } },
   };
 
+  const dropdownVariants = {
+    hidden: { opacity: 0, y: -5, height: 0 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      height: "auto",
+      transition: { duration: 0.3 }
+    },
+    exit: { 
+      opacity: 0, 
+      y: -5, 
+      height: 0,
+      transition: { duration: 0.3 }
+    }
+  };
+
   return (
     <motion.nav
       initial={{ y: -20 }}
@@ -91,24 +120,71 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden lg:flex lg:space-x-8">
           {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`relative px-2 py-1 font-medium ${
-                location.pathname === link.path
-                  ? "text-blue-400"
-                  : "text-gray-200 hover:text-white"
-              } transition-colors duration-300`}
-            >
-              {link.name}
-              {location.pathname === link.path && (
-                <motion.span
-                  className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-500 rounded-full"
-                  layoutId="underline"
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-              )}
-            </Link>
+            link.dropdown ? (
+              <div key={link.name} className="relative group">
+                <button 
+                  className={`flex items-center px-2 py-1 font-medium ${
+                    location.pathname === link.path
+                      ? "text-blue-400"
+                      : "text-gray-200 hover:text-white"
+                  } transition-colors duration-300`}
+                  onClick={toggleExperienceDropdown}
+                >
+                  {link.name}
+                  <FaChevronDown className="ml-1 w-3 h-3" />
+                  {location.pathname === link.path && (
+                    <motion.span
+                      className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-500 rounded-full"
+                      layoutId="underline"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </button>
+                
+                <AnimatePresence>
+                  {experienceDropdown && (
+                    <motion.div 
+                      variants={dropdownVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      className="absolute left-0 mt-2 py-2 w-48 bg-gray-800 rounded-md shadow-xl z-20"
+                    >
+                      {link.items.map((item) => (
+                        <motion.div key={item.name} variants={itemVariants}>
+                          <a 
+                            href={item.path} 
+                            className="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700 hover:text-white"
+                            onClick={() => setExperienceDropdown(false)}
+                          >
+                            {item.name}
+                          </a>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`relative px-2 py-1 font-medium ${
+                  location.pathname === link.path
+                    ? "text-blue-400"
+                    : "text-gray-200 hover:text-white"
+                } transition-colors duration-300`}
+              >
+                {link.name}
+                {location.pathname === link.path && (
+                  <motion.span
+                    className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-500 rounded-full"
+                    layoutId="underline"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+              </Link>
+            )
           ))}
         </div>
       </div>
@@ -130,20 +206,61 @@ const Navbar = () => {
                   variants={itemVariants}
                   className="border-b border-gray-700 last:border-b-0"
                 >
-                  <Link
-                    to={link.path}
-                    className={`block py-4 ${
-                      location.pathname === link.path
-                        ? "text-blue-400"
-                        : "text-gray-200"
-                    } hover:text-blue-300 transition-colors duration-300 flex items-center justify-between`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <span>{link.name}</span>
-                    {location.pathname === link.path && (
-                      <span className="w-2 h-2 bg-blue-500 rounded-full" />
-                    )}
-                  </Link>
+                  {link.dropdown ? (
+                    <div>
+                      <button
+                        className={`flex items-center justify-between w-full py-4 ${
+                          location.pathname === link.path
+                            ? "text-blue-400"
+                            : "text-gray-200"
+                        } hover:text-blue-300 transition-colors duration-300`}
+                        onClick={() => {
+                          toggleExperienceDropdown();
+                        }}
+                      >
+                        <span>{link.name}</span>
+                        <FaChevronDown className={`transition-transform duration-300 ${experienceDropdown ? "rotate-180" : ""}`} />
+                      </button>
+                      
+                      <AnimatePresence>
+                        {experienceDropdown && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="pl-4 overflow-hidden"
+                          >
+                            {link.items.map((item) => (
+                              <a
+                                key={item.name}
+                                href={item.path}
+                                className="block py-3 text-gray-300 hover:text-blue-300 transition-colors"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                {item.name}
+                              </a>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      to={link.path}
+                      className={`block py-4 ${
+                        location.pathname === link.path
+                          ? "text-blue-400"
+                          : "text-gray-200"
+                      } hover:text-blue-300 transition-colors duration-300 flex items-center justify-between`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <span>{link.name}</span>
+                      {location.pathname === link.path && (
+                        <span className="w-2 h-2 bg-blue-500 rounded-full" />
+                      )}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </div>
