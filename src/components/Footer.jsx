@@ -104,8 +104,11 @@ const Footer = () => {
               © 2025 Diwakar Pandey. All rights reserved.
             </p>
             <p className="flex items-center">
-              Made with <FaHeart className="text-red-500 mx-1" /> 
+              Made with <FaHeart className="text-red-500 mx-1" />  by &nbsp; <a href="https://rajeshpandey10.com.np/" className="text-green-500">Rajesh Pandey</a> 
             </p>
+            {/* <p className="flex items-center">
+              Special Thanks : <a href="https://rajeshpandey10.com.np/" className="text-green-500">Rajesh Pandey</a> <FaHeart className="text-red-500 mx-1" /> 
+            </p> */}
           </motion.div>
         </div>
       </div>
