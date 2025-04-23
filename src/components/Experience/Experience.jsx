@@ -82,7 +82,7 @@ const Experience = ({ section }) => {
       color: "blue",
     },
     {
-      title: "Board Mmeber",
+      title: "Board Member",
       organization: "Hatemalo Nepali Students Group (HNSG)",
       location: "New Delhi,India",
       date: "2013",
