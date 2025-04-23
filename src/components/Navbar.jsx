@@ -36,14 +36,14 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { 
-      name: "Journey", 
+    {
+      name: "Journey",
       path: "/journey",
       dropdown: true,
       items: [
-        { name: "Professional", path: "/journey#professional" },
-        { name: "Political", path: "/journey#political" },
-      ]
+        { name: "Professional", path: "/journey/professional" },
+        { name: "Political", path: "/journey/political" },
+      ],
     },
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
@@ -78,18 +78,18 @@ const Navbar = () => {
 
   const dropdownVariants = {
     hidden: { opacity: 0, y: -5, height: 0 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       height: "auto",
-      transition: { duration: 0.3 }
+      transition: { duration: 0.3 },
     },
-    exit: { 
-      opacity: 0, 
-      y: -5, 
+    exit: {
+      opacity: 0,
+      y: -5,
       height: 0,
-      transition: { duration: 0.3 }
-    }
+      transition: { duration: 0.3 },
+    },
   };
 
   return (
@@ -119,12 +119,12 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex lg:space-x-8">
-          {navLinks.map((link) => (
+          {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.name} className="relative group">
-                <button 
+                <button
                   className={`flex items-center px-2 py-1 font-medium ${
-                    location.pathname === link.path
+                    location.pathname.includes(link.path)
                       ? "text-blue-400"
                       : "text-gray-200 hover:text-white"
                   } transition-colors duration-300`}
@@ -132,18 +132,22 @@ const Navbar = () => {
                 >
                   {link.name}
                   <FaChevronDown className="ml-1 w-3 h-3" />
-                  {location.pathname === link.path && (
+                  {location.pathname.includes(link.path) && (
                     <motion.span
                       className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-500 rounded-full"
                       layoutId="underline"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
                     />
                   )}
                 </button>
-                
+
                 <AnimatePresence>
                   {experienceDropdown && (
-                    <motion.div 
+                    <motion.div
                       variants={dropdownVariants}
                       initial="hidden"
                       animate="visible"
@@ -152,13 +156,13 @@ const Navbar = () => {
                     >
                       {link.items.map((item) => (
                         <motion.div key={item.name} variants={itemVariants}>
-                          <a 
-                            href={item.path} 
+                          <Link
+                            to={item.path}
                             className="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700 hover:text-white"
                             onClick={() => setExperienceDropdown(false)}
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         </motion.div>
                       ))}
                     </motion.div>
@@ -185,7 +189,7 @@ const Navbar = () => {
                 )}
               </Link>
             )
-          ))}
+          )}
         </div>
       </div>
 
@@ -210,7 +214,7 @@ const Navbar = () => {
                     <div>
                       <button
                         className={`flex items-center justify-between w-full py-4 ${
-                          location.pathname === link.path
+                          location.pathname.includes(link.path)
                             ? "text-blue-400"
                             : "text-gray-200"
                         } hover:text-blue-300 transition-colors duration-300`}
@@ -219,9 +223,13 @@ const Navbar = () => {
                         }}
                       >
                         <span>{link.name}</span>
-                        <FaChevronDown className={`transition-transform duration-300 ${experienceDropdown ? "rotate-180" : ""}`} />
+                        <FaChevronDown
+                          className={`transition-transform duration-300 ${
+                            experienceDropdown ? "rotate-180" : ""
+                          }`}
+                        />
                       </button>
-                      
+
                       <AnimatePresence>
                         {experienceDropdown && (
                           <motion.div
@@ -232,14 +240,14 @@ const Navbar = () => {
                             className="pl-4 overflow-hidden"
                           >
                             {link.items.map((item) => (
-                              <a
+                              <Link
                                 key={item.name}
-                                href={item.path}
+                                to={item.path}
                                 className="block py-3 text-gray-300 hover:text-blue-300 transition-colors"
                                 onClick={() => setIsOpen(false)}
                               >
                                 {item.name}
-                              </a>
+                              </Link>
                             ))}
                           </motion.div>
                         )}

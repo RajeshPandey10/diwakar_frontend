@@ -11,6 +11,8 @@ import Footer from "./components/Footer";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Experience from "./components/Experience/Experience";
+import ProfessionalJourney from "./components/Experience/ProfessionalJourney";
+import PoliticalJourney from "./components/Experience/PoliticalJourney";
 import Blog from "./components/Blog/Blog";
 import Contact from "./components/Contact/Contact";
 import { ToastContainer } from "react-toastify";
@@ -78,6 +80,11 @@ const AppContent = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/journey" element={<Experience />} />
+          <Route
+            path="/journey/professional"
+            element={<ProfessionalJourney />}
+          />
+          <Route path="/journey/political" element={<PoliticalJourney />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
