@@ -52,6 +52,11 @@ const ProfessionalJourney = () => {
       date: "2025",
       color: "green",
     },
+    {
+      title:"Public Finance Management Certified (Cert. PFM) ",
+      date:"2025",
+      color:"blue"
+    }
   ];
 
   const containerVariants = {
