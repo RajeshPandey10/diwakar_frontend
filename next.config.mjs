@@ -4,9 +4,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  turbopack: {
-    root: "/Users/rajeshpandey/diwakar_frontend",
-  },
 };
 
 export default nextConfig;
